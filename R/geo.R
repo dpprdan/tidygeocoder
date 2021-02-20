@@ -156,10 +156,22 @@ geo <- function(address = NULL,
   # all legal method argument excluding 'cascade'
 
   # Check argument inputs
-  stopifnot(is.logical(verbose), is.logical(no_query), is.logical(flatten), is.logical(param_error),
-            is.logical(full_results), is.logical(unique_only), is.logical(return_addresses),
-            is.numeric(limit), is.numeric(batch_limit), is.numeric(timeout),
-            limit >= 1, batch_limit >= 1, timeout >= 0, is.list(custom_query))
+  stopifnot(
+    'limit must be numeric'            = is.numeric(limit), 
+    'limit must be >= 1'               = limit >= 1, 
+    'timeout must be numeric'          = is.numeric(timeout),
+    'timeout must be >= 0'             = timeout >= 0, 
+    'full_results must be logical'     = is.logical(full_results), 
+    'unique_only must be logical'      = is.logical(unique_only), 
+    'return_addresses must be logical' = is.logical(return_addresses),
+    'flatten must be logical'          = is.logical(flatten), 
+    'batch_limit must be numeric'      = is.numeric(batch_limit), 
+    'batch_limit must be >= 1'         = batch_limit >= 1, 
+    'verbose must be logical'          = is.logical(verbose), 
+    'no_query must be logical'         = is.logical(no_query), 
+    'custom_query must be a list'      = is.list(custom_query),
+    'param_error must be logical'      = is.logical(param_error)
+  )
   
   if (!(method %in% c('cascade', method_services))) {
     stop('Invalid method argument. See ?geo')
