@@ -113,9 +113,15 @@ api_parameter_reference <- tibble::tribble(
   # Bing returns json by default
   # Bing requires an api_key
   
-  'bing',      'api_key',    'key',           NA,                  TRUE,
-  'bing',      'address',    'q',             NA,                  TRUE,  
-  'bing',      'limit',      'maxResults',    '1',                 FALSE,
+  'bing',      'api_key',    'key',            NA,                 TRUE,
+  'bing',      'address',    'q',              NA,                 TRUE,  
+  'bing',      'limit',      'maxResults',     '1',                FALSE,
+  'bing',      'street',     'addressLine',    NA,                 FALSE,
+  'bing',      'city',       'locality',       NA,                 FALSE,
+  'bing',      'county',     'adminDistrict2', NA,                 FALSE,
+  'bing',      'state',      'adminDistrict',  NA,                 FALSE,
+  'bing',      'postalcode', 'postalCode',     NA,                 FALSE,
+  'bing',      'country',    'countryRegion',  NA,                 FALSE,
   
   ########################### ArcGis #################################
   # ArcGis may not require an api key
